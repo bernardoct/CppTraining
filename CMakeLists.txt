@@ -3,6 +3,8 @@ project(CppTraining)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
+
 add_executable(CppTraining1 HW1/ReservoirMassBalance1.cpp)
 add_executable(CppTraining2 HW2/ReservoirMassBalance2.cpp)
 add_executable(CppTraining3 HW3/ReservoirMassBalance3.cpp HW3/WaterSources/Reservoir.cpp HW3/WaterSources/Reservoir.h

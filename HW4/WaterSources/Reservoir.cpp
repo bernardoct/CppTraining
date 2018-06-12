@@ -20,8 +20,9 @@ Reservoir::~Reservoir() = default;
  * @return the release.
  */
 double Reservoir::performMassBalance(double upstream_flow, int week) {
-    double new_stored_volume = stored_volume[week - 1] + upstream_flow + catchment_inflows[week] - evaporations[week] - min_env_flow;
-    double release;
+    double new_stored_volume = stored_volume[week - 1] + upstream_flow + catchment_inflows[week] -
+            evaporations[week] - min_env_flow;
+    double release = 0;
 
     if (new_stored_volume > capacity) {
         release += new_stored_volume - capacity;

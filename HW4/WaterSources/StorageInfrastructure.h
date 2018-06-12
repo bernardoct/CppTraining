@@ -15,7 +15,7 @@ class StorageInfrastructure {
 
     const double MIN_INFLOW_EVAP = 0.;
     const double MAX_INFLOW_EVAP = 10.;
-    double simulated_time;
+    int simulated_time;
 public:
     const string name;
     const double capacity;
@@ -27,7 +27,6 @@ protected:
 
     // Create uniform distribution for inflow and evaporation sampling
     std::uniform_real_distribution<double> unif;
-    std::default_random_engine re;
 
 public:
     StorageInfrastructure(const string &name, const double capacity, double min_env_flow,
@@ -35,11 +34,18 @@ public:
 
     StorageInfrastructure(const StorageInfrastructure &storage_infrastructure);
 
+    StorageInfrastructure& operator=(const StorageInfrastructure& storageInfrastructure);
+
     ~StorageInfrastructure();
+
+    void generateEvaporationsInflows(double* evaporations, double* catchment_inflows);
 
     virtual double performMassBalance(double upstream_flow, int week) = 0;
 
     const vector<double> &getStored_volume() const;
+
+    void
+    copyEvaporationsInflows(double *evaporations, double *catchment_inflows, const StorageInfrastructure &storageInfrastructure);
 };
 
 
