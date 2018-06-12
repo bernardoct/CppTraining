@@ -14,8 +14,6 @@ public:
     Reservoir(const string &name, const double capacity, double min_env_flow, int simulation_time);
 
     double performMassBalance(double upstream_flow, int week) override;
-
-    virtual ~Reservoir();
 };
 
 

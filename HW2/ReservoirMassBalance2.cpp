@@ -9,15 +9,11 @@ void initializeVectors(vector<vector<double>> &catchment_inflows, vector<vector<
 
     unsigned long number_of_reservoirs = evaporations.size();
 
-    // Create uniform distribution for inflow and evaporation sampling
-    std::uniform_real_distribution<double> unif(min_inflow, max_inflow);
-    std::default_random_engine re;
-
     // Populate inflows and evaporation vectors with random values, volumes with capacities, and min env flows.
     for (int r = 0; r < number_of_reservoirs; ++r) {
         for (int t = 0; t < number_of_time_steps; ++t) {
-            catchment_inflows[r].push_back(unif(re));
-            evaporations[r].push_back(unif(re));
+            catchment_inflows[r].push_back(1. * rand() / RAND_MAX * max_inflow);
+            evaporations[r].push_back(1. * rand() / RAND_MAX * max_inflow);
         }
     }
 }

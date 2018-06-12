@@ -8,14 +8,12 @@ StorageInfrastructure::StorageInfrastructure(const string &name, const double ca
                                              int simulated_time)
         : name(name), capacity(capacity), min_env_flow(min_env_flow) {
 
-    unif = std::uniform_real_distribution<double>(MIN_INFLOW_EVAP, MAX_INFLOW_EVAP);
-
     evaporations = new double[simulated_time];
     catchment_inflows = new double[simulated_time];
 
     for (int t = 0; t < simulated_time; ++t) {
-        evaporations[t] = unif(re);
-        catchment_inflows[t] = unif(re);
+        evaporations[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
+        catchment_inflows[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
     }
 
 }

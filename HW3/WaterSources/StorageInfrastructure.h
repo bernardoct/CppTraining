@@ -34,8 +34,6 @@ public:
     virtual double performMassBalance(double upstream_flow, int week) = 0;
 
     const vector<double> &getStored_volume() const;
-
-    virtual ~StorageInfrastructure();
 };
 
 #endif //CPPTRAINING_WATERSOURCE_H
