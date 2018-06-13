@@ -69,8 +69,8 @@ void StorageInfrastructure::generateEvaporationsInflows(double *evaporations, do
 
     // Generate random inflows and evaporations. I know, this is not log-normal but let's keep it simple.
     for (int t = 0; t < simulated_time; ++t) {
-        evaporations[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
         catchment_inflows[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
+        evaporations[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
     }
 }
 

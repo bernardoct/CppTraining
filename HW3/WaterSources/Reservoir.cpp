@@ -2,6 +2,7 @@
 // Created by bernardo on 6/12/18.
 //
 
+#include <iostream>
 #include "Reservoir.h"
 
 Reservoir::Reservoir(const string &name, const double capacity, double min_env_flow, int simulation_time)
@@ -23,11 +24,13 @@ double Reservoir::performMassBalance(double upstream_flow, int week) {
         release += new_stored_volume - capacity;
         new_stored_volume = capacity;
     } else if (new_stored_volume < 0.) {
-        release = min_env_flow + new_stored_volume;
+        release = max(min_env_flow + new_stored_volume, 0.);
         new_stored_volume = 0.;
     } else {
         release = min_env_flow;
     }
+
+    cout << new_stored_volume << " " << upstream_flow << " " << catchment_inflows[week] << " " << evaporations[week] << " " << release << "           ";
 
     stored_volume.push_back(new_stored_volume);
     return release;

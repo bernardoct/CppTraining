@@ -12,8 +12,8 @@ StorageInfrastructure::StorageInfrastructure(const string &name, const double ca
     catchment_inflows = new double[simulated_time];
 
     for (int t = 0; t < simulated_time; ++t) {
-        evaporations[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
         catchment_inflows[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
+        evaporations[t] = 1. * rand() / RAND_MAX * MAX_INFLOW_EVAP;
     }
 
 }

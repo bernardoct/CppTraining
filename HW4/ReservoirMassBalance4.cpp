@@ -27,23 +27,24 @@ int main() {
 
             // Perform mass balance
             upstream_release = r.performMassBalance(upstream_release, t);
-            std::cout << r.getStored_volume()[t] << " ";
+//            std::cout << r.getStored_volume()[t] << " ";
+            std::cout << upstream_release << " ";
         }
         std::cout << std::endl;
     }
 
-    for (int t = 1; t < NUMBER_OF_TIME_STEPS; ++t) {
-        double upstream_release = 0.;
-        std::cout << "Week " << t << ": ";
-
-        // Reservoir loop
-        for (Reservoir &r : reservoirs_simulation2) {
-
-            // Perform mass balance
-            upstream_release = r.performMassBalance(upstream_release, t);
-            std::cout << r.getStored_volume()[t] << " ";
-        }
-        std::cout << std::endl;
-    }
+//    for (int t = 1; t < NUMBER_OF_TIME_STEPS; ++t) {
+//        double upstream_release = 0.;
+//        std::cout << "Week " << t << ": ";
+//
+//        // Reservoir loop
+//        for (Reservoir &r : reservoirs_simulation2) {
+//
+//            // Perform mass balance
+//            upstream_release = r.performMassBalance(upstream_release, t);
+//            std::cout << r.getStored_volume()[t] << " ";
+//        }
+//        std::cout << std::endl;
+//    }
 
 }

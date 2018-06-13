@@ -20,14 +20,14 @@ void initializeVectors(vector<vector<double>> &catchment_inflows, vector<vector<
 
 double performMassBalance(double &volume, const double upstream_release, const double catchment_inflow,
                           const double evaporation, const double min_env_flow, const double capacity) {
-    double release;
+    double release = min_env_flow;
 
     volume += upstream_release + catchment_inflow - evaporation - min_env_flow;
     if (volume > capacity) {
         release += volume - capacity;
         volume = capacity;
     } else if (volume < 0.) {
-        release = min_env_flow + volume;
+        release = max(min_env_flow + volume, 0.);
         volume = 0.;
     } else {
         release = min_env_flow;
@@ -57,13 +57,13 @@ int main() {
     // Time loop
     for (int t = 0; t < NUMBER_OF_TIME_STEPS; ++t) {
         std::cout << "Week " << t << ": ";
-        double upstream_release = 0.;
+        double release = 0.;
 
         // Reservoir loop
         for (int r = 0; r < NUMBER_OF_RESERVOIRS; ++r) {
 
             // Perform mass balance
-            upstream_release = performMassBalance(volumes[r], upstream_release, catchment_inflows[r][t],
+            release = performMassBalance(volumes[r], release, catchment_inflows[r][t],
                                                   evaporations[r][t], min_env_flows[r], CAPACITY);
             std::cout << volumes[r] << " ";
         }

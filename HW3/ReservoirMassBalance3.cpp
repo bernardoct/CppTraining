@@ -19,6 +19,7 @@ int main() {
 
     for (int t = 1; t < NUMBER_OF_TIME_STEPS; ++t) {
         double upstream_release = 0.;
+        cout << "Week " << t << ": ";
 
         // Reservoir loop
         for (Reservoir &r : reservoirs) {
@@ -26,15 +27,7 @@ int main() {
             // Perform mass balance
             upstream_release = r.performMassBalance(upstream_release, t);
         }
-    }
 
-    // Print results
-    for (int t = 0; t < NUMBER_OF_TIME_STEPS; ++t) {
-        std::cout << "Week " << t << ": ";
-        for (Reservoir &r : reservoirs) {
-            std::cout << r.getStored_volume()[t] << " ";
-        }
-        std::cout << std::endl;
+        cout << endl;
     }
-
 }
