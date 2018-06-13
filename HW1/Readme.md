@@ -1,6 +1,6 @@
 # Assignment 1
 
-All assignments will be about reservoir mass balance: it is a simple and intuitive problem, relevant to all of us to an extent, and is easy to code.
+All assignments will be about reservoir mass balance: it is a simple and intuitive problem, relevant to all of us to an extent, and is easy to code. Be sure to use CLion instead of a text editor --- this will make it easier to compile your code and will make a huge difference once we get to Object Oriented Programming. 
 
 ## The problem
 Your job is to write a code in C (structured) to simulate a system with 3 reservoirs with capacity of 100 MG each connected in series. The mass balance equation for such reservoirs will be:
