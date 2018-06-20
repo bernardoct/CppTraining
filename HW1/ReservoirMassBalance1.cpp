@@ -11,7 +11,6 @@ int main() {
     const double CAPACITY = 100.;
     const double MIN_ENV_FLOW = 5.;
     const double MAX_INFLOW_EVAP = 10.;
-    const double MIN_INFLOW_EVAP = 0.;
 
     // Declare state and time series variables
     double volumes[NUMBER_OF_RESERVOIRS];
@@ -44,9 +43,9 @@ int main() {
             if (volumes[r] > CAPACITY) {
                 release += volumes[r] - CAPACITY;
                 volumes[r] = CAPACITY;
-            } else if (volumes[r] < 0) {
+            } else if (volumes[r] < 0.) {
                 release = max(min_env_flows[r] + volumes[r], 0.);
-                volumes[r] = 0;
+                volumes[r] = 0.;
             } else {
                 release = min_env_flows[r];
             }
