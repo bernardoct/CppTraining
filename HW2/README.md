@@ -23,14 +23,14 @@ void initializeVectors(vector<vector<double>> &catchment_inflows, vector<vector<
 const double max_inflow, const double min_inflow, const int number_of_time_steps) 
 ```
 
-  -> Notice that since I'm passing the vectors of vectors by reference, if I fill them inside the function and call the function from the main, they're going to be filled in the main too.
+  -> Notice that since I'm passing the vectors of vectors by reference, if I fill them inside the function and call the function from the main, they'll be filled in the main too.
 
 ``` cpp
 double performMassBalance(double &volume, const double upstream_release, const double catchment_inflow,
 const double evaporation, const double min_env_flow, const double capacity)
 ```
 
-  -> In this function I return the release and call the function with the first argument being volume[r] (volume is a vector in the main, and volume[r] is the volume of a particular reservoir), which is changed within the function and outside it as well, since it was passed by reference. This way I'm performing two tasks in the main: updating the volumes vector and getting the reservoir release. 
+  -> In this function I return the release, and call it from the main passing volume[r] (volume is a vector in the main, and volume[r] is the volume of a particular reservoir) as the first argument. This means that volume[r] will be updated within the function and outside it as well, since it was passed by reference. This way, by calling this function I'm performing two tasks: updating the volumes vector and getting the reservoir release. 
 
 ## Last considerations
 Be sure to add print statements that will let you see what is going on with your numbers. Also, keep everything on the main for now instead of creating functions (we will get to that). Lastly, keep in mind the good coding practices! They feel like a pain in the beginning but make a huge difference later.
