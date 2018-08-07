@@ -1,4 +1,4 @@
-# Assignment 1
+# Assignment 2
 
 All assignments will be about reservoir mass balance: it is a simple and intuitive problem, relevant to all of us to an extent, and is easy to code. Be sure to use CLion instead of a text editor — this will make it easier to compile your code and will make a huge difference once we get to Object Oriented Programming. 
 
