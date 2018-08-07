@@ -17,11 +17,19 @@ Keep in mind that if the reservoir is full the release will should be the minimu
 
 ## Difference from HW1
 Now that we have worked on functions, be sure to use them in your code to shorten your main(). For example, in my code I use the following functions:
+
+``` cpp
 void initializeVectors(vector<vector<double>> &catchment_inflows, vector<vector<double>> &evaporations,
 const double max_inflow, const double min_inflow, const int number_of_time_steps) 
+```
+
   -> Notice that since I'm passing the vectors of vectors by reference, if I fill them inside the function and call the function from the main, they're going to be filled in the main too.
+
+``` cpp
 double performMassBalance(double &volume, const double upstream_release, const double catchment_inflow,
 const double evaporation, const double min_env_flow, const double capacity)
+```
+
   -> In this function I return the release and call the function with the first argument being volume[r] (volume is a vector in the main, and volume[r] is the volume of a particular reservoir), which is changed within the function and outside it as well, since it was passed by reference. This way I'm performing two tasks in the main: updating the volumes vector and getting the reservoir release. 
 
 ## Last considerations
