@@ -46,6 +46,16 @@ public:
 
     void
     copyEvaporationsInflows(double *evaporations, double *catchment_inflows, const StorageInfrastructure &storageInfrastructure);
+
+    double *getCatchment_inflows() const;
+
+    double *getEvaporations() const;
+
+    void setCatchment_inflows(double *catchment_inflows);
+
+    void setEvaporations(double *evaporations);
+
+    void setStored_volume(const vector<double> &stored_volume);
 };
 
 

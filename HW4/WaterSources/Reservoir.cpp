@@ -30,8 +30,6 @@ double Reservoir::performMassBalance(double upstream_flow, int week) {
     } else if (new_stored_volume < 0.) {
         release = max(min_env_flow + new_stored_volume, 0.);
         new_stored_volume = 0.;
-    } else {
-        release = min_env_flow;
     }
 
     stored_volume.push_back(new_stored_volume);

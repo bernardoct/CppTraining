@@ -18,17 +18,25 @@ int main() {
     vector<Reservoir> reservoirs_simulation1 = {nice_lake, gross_lake, ok_lake};
     vector<Reservoir> reservoirs_simulation2 = {nice_lake, gross_lake, ok_lake};
 
+    std::cout << "Week\t";
+    for (Reservoir &r : reservoirs_simulation1) {
+        printf("Stored vol. %s\tCatchment Inflows %s\tEvaporations %s\tRelease %s\t", r.name.c_str(), r.name.c_str(), r.name.c_str(), r.name.c_str());
+    }
+    std::cout << std::endl;
+
     for (int t = 1; t < NUMBER_OF_TIME_STEPS; ++t) {
         double upstream_release = 0.;
-        std::cout << "Week " << t << ": ";
+        std::cout << t << "\t";
 
         // Reservoir loop
         for (Reservoir &r : reservoirs_simulation1) {
 
             // Perform mass balance
             upstream_release = r.performMassBalance(upstream_release, t);
-//            std::cout << r.getStored_volume()[t] << " ";
-            std::cout << upstream_release << " ";
+            std::cout << r.getStored_volume()[t] << "\t";
+            std::cout << r.getCatchment_inflows()[t] << "\t";
+            std::cout << r.getEvaporations()[t] << "\t";
+            std::cout << upstream_release << "\t";
         }
         std::cout << std::endl;
     }

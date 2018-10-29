@@ -78,4 +78,24 @@ const vector<double> &StorageInfrastructure::getStored_volume() const {
     return stored_volume;
 }
 
+double *StorageInfrastructure::getCatchment_inflows() const {
+    return catchment_inflows;
+}
 
+double *StorageInfrastructure::getEvaporations() const {
+    return evaporations;
+}
+
+void StorageInfrastructure::setCatchment_inflows(double *catchment_inflows) {
+    delete[] StorageInfrastructure::catchment_inflows;
+    StorageInfrastructure::catchment_inflows = catchment_inflows;
+}
+
+void StorageInfrastructure::setEvaporations(double *evaporations) {
+    delete[] StorageInfrastructure::evaporations;
+    StorageInfrastructure::evaporations = evaporations;
+}
+
+void StorageInfrastructure::setStored_volume(const vector<double> &stored_volume) {
+    StorageInfrastructure::stored_volume = stored_volume;
+}
